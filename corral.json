@@ -1,0 +1,12 @@
+{
+  "packages": [ "redis" ],
+  "deps": [],
+  "info": {
+    "description": "A pure Pony implementation of the Redis client",
+    "homepage": "https://github.com/titan/pony-redis",
+    "license": "",
+    "documentation_url": "",
+    "version": "0.1.0",
+    "name": "redis"
+  }
+}

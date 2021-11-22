@@ -1,0 +1,151 @@
+* pony-redis
+
+A Redis client library for Pony language.
+
+Currently a work in progress, not ready for production.
+
+** TODO
+*** String [2/18]
+- [ ] append
+- [ ] decr
+- [ ] decrby
+- [X] get
+- [ ] getdel
+- [ ] getex
+- [ ] getrange
+- [ ] getset
+- [ ] incr
+- [ ] incrby
+- [ ] incrbyfloat
+- [ ] mget
+- [ ] mset
+- [ ] msetnx
+- [ ] psetex
+- [X] set
+- [ ] setex
+- [ ] setnx
+*** Keys [0/18]
+- [ ] setrange
+- [ ] stralgo
+- [ ] strlen
+- [ ] copy
+- [ ] del
+- [ ] exists
+- [ ] expire
+- [ ] expireat
+- [ ] expiretime
+- [ ] rename
+- [ ] renamenx
+- [ ] move
+- [ ] select
+- [ ] discard
+- [ ] exec
+- [ ] multi
+- [ ] unwatch
+- [ ] watch
+*** Hash [0/16]
+- [ ] hget
+- [ ] hgetall
+- [ ] hmget
+- [ ] hset
+- [ ] hsetnx
+- [ ] hmset
+- [ ] hkeys
+- [ ] hvals
+- [ ] hlen
+- [ ] hdel
+- [ ] hexists
+- [ ] hincrby
+- [ ] hincrbyfloat
+- [ ] hrandfield
+- [ ] hscan
+- [ ] hstrlen
+*** List [0/22]
+- [ ] blmove
+- [ ] blmpop
+- [ ] blpop
+- [ ] brpop
+- [ ] brpoplpush
+- [ ] lindex
+- [ ] linset
+- [ ] llen
+- [ ] lmove
+- [ ] lmpop
+- [ ] lpop
+- [ ] lpos
+- [ ] lpush
+- [ ] lpushx
+- [ ] lrange
+- [ ] lrem
+- [ ] lset
+- [ ] ltrim
+- [ ] rpop
+- [ ] rpoplpush
+- [ ] rpush
+- [ ] rpushx
+*** Set [0/16]
+- [ ] sadd
+- [ ] scard
+- [ ] sdiff
+- [ ] sdiffstore
+- [ ] sinter
+- [ ] sintercard
+- [ ] sinterstore
+- [ ] sismember
+- [ ] smembers
+- [ ] smove
+- [ ] spop
+- [ ] srandmember
+- [ ] srem
+- [ ] sscan
+- [ ] sunion
+- [ ] sunionstore
+*** Sorted Set [0/33]
+- [ ] bzpopmax
+- [ ] bzpopmin
+- [ ] zadd
+- [ ] zcard
+- [ ] zcount
+- [ ] zdiff
+- [ ] zdiffstore
+- [ ] zincrby
+- [ ] zinter
+- [ ] zintercard
+- [ ] zinterstore
+- [ ] zlexcount
+- [ ] zmscore
+- [ ] zpopmax
+- [ ] zpopmin
+- [ ] zrandmember
+- [ ] zrange
+- [ ] zrangebylex
+- [ ] zrangebyscore
+- [ ] zrangestore
+- [ ] zrank
+- [ ] zrem
+- [ ] zremrangebylex
+- [ ] zremrangebyrank
+- [ ] zremrangebyscore
+- [ ] zrevrange
+- [ ] zrevrangebylex
+- [ ] zrevrangebyscore
+- [ ] zrevrank
+- [ ] zscan
+- [ ] zscore
+- [ ] zunion
+- [ ] zunionstore
+*** Stream [0/14]
+- [ ] xinfo
+- [ ] xadd
+- [ ] xtrim
+- [ ] xdel
+- [ ] xrange
+- [ ] xrevrange
+- [ ] xlen
+- [ ] xread
+- [ ] xgroup
+- [ ] xreadgroup
+- [ ] xack
+- [ ] xclaim
+- [ ] xautoclaim
+- [ ] xpending

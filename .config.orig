@@ -1,0 +1,2 @@
+NAME=redis
+BUILDDIR=/dev/shm/$(NAME-LINK)
