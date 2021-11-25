@@ -134,18 +134,18 @@ Currently a work in progress, not ready for production.
 - [ ] zscore
 - [ ] zunion
 - [ ] zunionstore
-*** Stream [0/14]
+*** Stream [8/14]
 - [ ] xinfo
-- [ ] xadd
-- [ ] xtrim
-- [ ] xdel
-- [ ] xrange
+- [X] xadd
+- [X] xtrim
+- [X] xdel
+- [X] xrange
 - [ ] xrevrange
-- [ ] xlen
-- [ ] xread
+- [X] xlen
+- [X] xread
 - [ ] xgroup
-- [ ] xreadgroup
-- [ ] xack
+- [X] xreadgroup
+- [X] xack
 - [ ] xclaim
 - [ ] xautoclaim
 - [ ] xpending

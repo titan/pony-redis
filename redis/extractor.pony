@@ -63,8 +63,8 @@ primitive _SingleStreamItemArrayExtractor is RedisValueExtractor[Array[(String, 
       recover val Array[(String, Map[String, String] val)] end
     end
 
-primitive _MultiplayStreamItemArrayExtractor is RedisValueExtractor[Map[String, Array[(String, Map[String, String] val)] val] val]
-  fun apply(r: Redis tag, v: RedisValue val): Map[String, Array[(String, Map[String, String] val)] val] val =>
+primitive _MultiplayStreamItemArrayExtractor is RedisValueExtractor[(None | Map[String, Array[(String, Map[String, String] val)] val] val)]
+  fun apply(r: Redis tag, v: RedisValue val): (None | Map[String, Array[(String, Map[String, String] val)] val] val) =>
     match v.kind
     | RedisArray =>
       try
@@ -100,8 +100,8 @@ primitive _MultiplayStreamItemArrayExtractor is RedisValueExtractor[Map[String, 
         end
         consume result
       else
-        recover val Map[String, Array[(String, Map[String, String] val)] val] end
+        None
       end
     else
-      recover val Map[String, Array[(String, Map[String, String] val)] val] end
+      None
     end

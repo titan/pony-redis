@@ -43,5 +43,6 @@ primitive RespEncoder
         output.append(apply(item)?)
       end
       output
+    | RedisNull => "*-1\r\n"
     end
 

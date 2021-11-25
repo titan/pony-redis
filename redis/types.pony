@@ -1,5 +1,8 @@
 use "collections"
 
+primitive RedisNull
+  fun box string(): String val => "null"
+
 primitive RedisNumber
   fun box string(): String val => "number"
 
@@ -15,11 +18,15 @@ primitive RedisArray
 primitive RedisSimpleError
   fun box string(): String val => "simple-error"
 
-type RedisKind is (RedisNumber | RedisBlobString | RedisSimpleString | RedisArray | RedisSimpleError)
+type RedisKind is (RedisNull | RedisNumber | RedisBlobString | RedisSimpleString | RedisArray | RedisSimpleError)
 
 class RedisValue is (Hashable & Equatable[RedisValue])
-  let _value: (String | I64 | Array[RedisValue val] val)
+  let _value: (None | String | I64 | Array[RedisValue val] val)
   let kind: RedisKind
+
+  new iso null() =>
+    _value = None
+    kind = RedisNull
 
   new iso number(v: I64) =>
     _value = v
@@ -58,6 +65,7 @@ class RedisValue is (Hashable & Equatable[RedisValue])
   fun box eq(that: box->RedisValue): Bool =>
     if (this.kind is that.kind) then
       match _value
+      | None => that.is_null()
       | let s: String => try s.eq(that.get_string()?) else false end
       | let i: I64 => try i == that.get_number()? else false end
       | let a: this->Array[RedisValue val] =>
@@ -82,13 +90,16 @@ class RedisValue is (Hashable & Equatable[RedisValue])
           false
         end
       else
-        return false
+        false
       end
     else
-      return false
+      false
     end
 
   fun box ne(that: box->RedisValue): Bool => not eq(that)
+
+  fun box is_null(): Bool =>
+    _value is None
 
   fun box get_string(): String ? =>
     match _value

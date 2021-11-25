@@ -110,7 +110,7 @@ trait tag RedisStreamApi
     end
     _exec[Array[(String, Map[String, String] val)] val, _SingleStreamItemArrayExtractor](consume cmd)
 
-  fun tag xread(keyids: Array[(String, String)], count: USize = 0, timeout: U64 = 0): Promise[Map[String, Array[(String, Map[String, String] val)] val] val] =>
+  fun tag xread(keyids: Array[(String, String)], count: USize = 0, timeout: U64 = 0): Promise[(None | Map[String, Array[(String, Map[String, String] val)] val] val)] =>
     """
     Read data from one or multiple streams, only returning entries
     with an ID greater than the last received ID reported by the
@@ -134,9 +134,9 @@ trait tag RedisStreamApi
     for (key, id) in keyids.values() do
       cmd.push(RedisValue.blob_string(id))
     end
-    _exec[Map[String, Array[(String, Map[String, String] val)] val] val, _MultiplayStreamItemArrayExtractor](consume cmd)
+    _exec[(None | Map[String, Array[(String, Map[String, String] val)] val] val), _MultiplayStreamItemArrayExtractor](consume cmd)
 
-  fun tag xreadgroup(group: String, consumer: String, keyids: Array[(String, String)], count: USize = 0, timeout: U64 = 0, noack: Bool = false): Promise[Map[String, Array[(String, Map[String, String] val)] val] val] =>
+  fun tag xreadgroup(group: String, consumer: String, keyids: Array[(String, String)], count: USize = 0, timeout: U64 = 0, noack: Bool = false): Promise[(None | Map[String, Array[(String, Map[String, String] val)] val] val)] =>
     """
     The XREADGROUP command is a special version of the XREAD command
     with support for consumer groups. Probably you will have to
@@ -166,7 +166,7 @@ trait tag RedisStreamApi
     for (key, id) in keyids.values() do
       cmd.push(RedisValue.blob_string(id))
     end
-    _exec[Map[String, Array[(String, Map[String, String] val)] val] val, _MultiplayStreamItemArrayExtractor](consume cmd)
+    _exec[(None | Map[String, Array[(String, Map[String, String] val)] val] val), _MultiplayStreamItemArrayExtractor](consume cmd)
 
   fun tag xtrim(key: String, strategies: StreamTrimmingStrategy = StreamTrimmingStrategyMaxLen, threshold: String, limit: USize = 0): Promise[I64] =>
     """
